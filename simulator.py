@@ -227,7 +227,7 @@ def run_simulation(iteration):
     # Stop and remain in place for 20+ seconds
     stop_action = DriveAction(stop, 'stopping')
     schedule_event(DriveEvent(stop_action, simulation_time))
-    simulation_time += 20
+    simulation_time += 30
 
     # Drive again for 30 seconds
     schedule_event(DriveEvent(drive_action, simulation_time))
@@ -235,7 +235,7 @@ def run_simulation(iteration):
 
     # Stop again
     schedule_event(DriveEvent(stop_action, simulation_time))
-    simulation_time += 20
+    simulation_time += 30
 
     # Drive again for 30 seconds
     schedule_event(DriveEvent(drive_action, simulation_time))
@@ -243,7 +243,7 @@ def run_simulation(iteration):
 
     # Stop again
     schedule_event(DriveEvent(stop_action, simulation_time))
-    simulation_time += 60
+    simulation_time += 30
 
     # Ignition off
     schedule_event(DriveEvent(car_off_action, simulation_time))
@@ -254,7 +254,7 @@ def run_simulation(iteration):
 
     # Schedule all timer tasks
     for evt in events:
-        if (evt.action):
+        if evt.action:
             evt.task.start()
 
 
